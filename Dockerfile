@@ -1,5 +1,5 @@
 FROM python:3.7-alpine
-MAINTAINER Qianyi
+MAINTAINER London App Developer Ltd.
 
 ENV PYTHONUNBUFFERED 1
 
@@ -12,11 +12,11 @@ RUN apk del .tmp-build-deps
 
 RUN mkdir /app
 WORKDIR /app
-COPY ./app /app
+COPY ./app/ /app
 
 RUN mkdir -p /vol/web/media
 RUN mkdir -p /vol/web/static
 RUN adduser -D user
 RUN chown -R user:user /vol/
-RUN chown -R 755 /vol/web
+RUN chmod -R 755 /vol/web
 USER user
